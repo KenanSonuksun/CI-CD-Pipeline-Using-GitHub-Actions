@@ -30,9 +30,6 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
 
-    - name: Login to JFrog Container Registry
-      run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login your_domain.jfrog.io --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
-
     - name: Build & push Docker image
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
